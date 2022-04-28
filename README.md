@@ -1,4 +1,4 @@
-# my-own-calculator--html--css--js-
+# my-own-calculator(html, css, js)
 
 Welcome in my another project, this is very common and popular project, but programming is fun for me and i feel like i need to project and build my own calculator using basic frontend developer tools like html, css and javascript :)
 
