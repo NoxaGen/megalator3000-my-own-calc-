@@ -25,19 +25,27 @@ body {
     border: 6px solid #0ff;
     border-radius: 5%;
     box-shadow: 0px 0px 40px 20px #0ff;
+    padding: 8px 0px;
+
 }
 
 .screen {
     width: 90%;
     height: 16%;
     background-color: aqua;
-    border: 1px pink solid;
+    border: 3px solid rgb(62, 179, 179);
+    background-color: rgb(97, 89, 89);
+    border-radius: 5%;
 }
 
 button {
-    width: 22%;
-    height: 11%;
+    width: 23%;
+    height: 13%;
     background-color: rgb(29, 27, 27);
     border: 3px solid rgb(62, 179, 179);
-    border-radius: 5%;
+    border-radius: 1%;
+}
+
+button:hover {
+    background-color: rgb(106, 112, 112);
 }
