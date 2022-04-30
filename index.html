@@ -5,38 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Megalator 3000</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- the whole calculator container -->
     <section class="calculator">
-        <div class="screen"></div>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-    </section>
+        <section class="screen"><span data-calculator="screen"></span></div>
+            <!-- section to keep five memory buttons under screen -->
+            <section class="memory-buttons">
+                <button>
+                    <p>MC</p>
+                </button><button>
+                    <p>MR</p>
+                </button><button>
+                    <p>M+</p>
+                </button><button>
+                    <p>M-</p>
+                </button><button>
+                    <p>MS</p>
+                </button>
+            </section>
+            <!-- section for keep all basic and more advanced operators + numbers -->
+            <section class="numbers-and-operators">
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+                <button></button>
+            </section>
+            <!-- section intended to store history of last calculations -->
+            <section class="history">
+                <p>History</p>
+                <div><span data-calculator="history-list"></span></div>
+            </section>
+            <!-- memory section -->
+            <section class="memory">
+                <p>Memory</p>
+                <div><span data-calculator="screen"></span></div>
+            </section>
+        </section>
 </body>
 
 </html>
