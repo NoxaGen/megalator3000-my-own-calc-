@@ -4,7 +4,7 @@
     padding: 0px;
 }
 
-body {
+/* body {
     background-color: rgb(0, 0, 0);
 }
 
@@ -13,14 +13,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* flex-flow: column; */
+
     flex-wrap: wrap;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
     min-width: 400px;
-    height: 600px;
+    height: 800px;
     min-height: 600px;
     border: 6px solid #0ff;
     border-radius: 5%;
@@ -43,9 +43,10 @@ button {
     height: 13%;
     background-color: rgb(29, 27, 27);
     border: 3px solid rgb(62, 179, 179);
-    border-radius: 1%;
+    flex-grow: 0;
+
 }
 
 button:hover {
     background-color: rgb(106, 112, 112);
-}
+} */
