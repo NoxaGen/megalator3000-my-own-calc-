@@ -1,5 +1,7 @@
 # my-own-calculator(html, css, js)
 
+I call this calculator Megalator3000 :D
+
 Edit 1 - I think im gonna try to build move advanced calculator with history and memory.
 Maybe I will add some glowing style witch switcher for fun :)
 
