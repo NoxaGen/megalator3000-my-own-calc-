@@ -4,6 +4,37 @@
     padding: 0px;
 }
 
+.calculator {
+    display: grid;
+    position: absolute;
+    width: 850px;
+    height: 550px;
+    background-color: pink;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.screen {
+    background-color: blue;
+}
+
+.memory-buttons {
+    background-color: green;
+}
+
+.numbers-and-operators {
+    background-color: orange;
+}
+
+.history {
+    background-color: purple;
+}
+
+.memory {
+    background-color: aqua;
+}
+
 /* body {
     background-color: rgb(0, 0, 0);
 }
