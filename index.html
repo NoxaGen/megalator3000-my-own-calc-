@@ -6,8 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Megalator 3000</title>
+
+    <script src="https://kit.fontawesome.com/b421c2a6df.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
+<!-- <i class="fas fa-square-root-alt"></i> square root icon -->
+<!-- <i class="fas fa-backspace"></i> calc backspace icon -->
+<!-- <i class="fas fa-exchange-alt"></i> reciprocal of the number -->
+<!-- <i class="fas fa-cubes"></i> square power, i know this is weird icon  -->
+
 
 <body>
     <!-- the whole calculator container -->
@@ -16,27 +24,27 @@
             <!-- section to keep five memory buttons under screen -->
             <section class="memory-buttons">
                 <button>
-                    <p>MC</p>
+                    <p title="wyczyść całą pamięć">MC</p>
                 </button><button>
-                    <p>MR</p>
+                    <p title="wycofaj z pamięci">MR</p>
                 </button><button>
-                    <p>M+</p>
+                    <p title="dodaj do pamięci">M+</p>
                 </button><button>
-                    <p>M-</p>
+                    <p title="odejmij od pamięci">M-</p>
                 </button><button>
-                    <p>MS</p>
+                    <p title="przechowaj w pamięci">MS</p>
                 </button>
             </section>
             <!-- section for keep all basic and more advanced operators + numbers -->
             <section class="numbers-and-operators">
-                <button>%</button>
-                <button>CE</button>
-                <button>C</button>
+                <button title="procent">%</button>
+                <button title="kasuje ostatnio wprowadzoną liczbę">CE</button>
+                <button title="kasuje całe obliczenie">C</button>
+                <button title="cofnij"><i class="fas fa-backspace"></i></button>
+                <button title="obliczanie odwrotności liczby"><i class="fas fa-exchange-alt"></i></button>
+                <button title="podnieś do potęgi"><i class="fas fa-cubes"></i></button>
                 <button>X</button>
-                <button>X</button>
-                <button>X</button>
-                <button>X</button>
-                <button>X</button>
+                <button title="pierwiastek">X<i class="fas fa-solid fa-square-root-variable"></i></button>
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
@@ -56,12 +64,12 @@
             </section>
             <!-- section intended to store history of last calculations -->
             <section class="history">
-                <p>History</p>
+                <p>Historia</p>
                 <div><span data-calculator="history-list"></span></div>
             </section>
             <!-- memory section -->
             <section class="memory">
-                <p>Memory</p>
+                <p>Pamięć</p>
                 <div><span data-calculator="screen"></span></div>
             </section>
         </section>
