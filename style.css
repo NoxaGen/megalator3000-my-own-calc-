@@ -5,8 +5,10 @@
 }
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     font-size: 10px;
+    font-family: 'Righteous';
+    background-color: rgb(15, 5, 33);
 }
 
 .calculator {
@@ -23,22 +25,46 @@ body {
     min-width: 850px;
     height: 550px;
     min-height: 550px;
-    /* background-color: pink; */
+    background-color: rgb(57, 50, 124);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 3px black solid;
+    border: 5px rgb(14, 237, 249) solid;
     font-size: 1.1rem;
+    box-shadow: 0 0 10px 10px rgb(57, 50, 124);
 }
 
 .screen {
-    background-color: blue;
+    background-color: rgb(57, 50, 124);
     grid-area: screen-calc;
+    position: relative;
+}
+
+.numbers-and-operators>.operator {
+    background-color: rgb(68, 142, 221);
+}
+
+.screen div {
+    position: absolute;
+    width: 90%;
+    height: 75%;
+    background-color: rgb(41, 38, 70);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -41%);
+    box-shadow: 0 0 10px 4px rgb(14, 237, 249);
 }
 
 .screen p {
     text-align: center;
+    color: white;
 }
+
+button {
+    border-radius: 8%;
+}
+
+
 
 .memory-buttons {
     /* background-color: green; */
@@ -46,11 +72,24 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+
 }
 
 .memory-buttons button {
     width: 19%;
     height: 60%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: 0.1s;
+    cursor: pointer;
+    background-color: rgb(92, 78, 149)
+}
+
+.memory-buttons button:hover {
+    color: rgb(14, 237, 249);
+    box-shadow: 0 0 10px 4px rgb(14, 237, 249);
+    font-size: 1.8rem;
+
 }
 
 .numbers-and-operators {
@@ -61,24 +100,73 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 
+
 }
 
 .numbers-and-operators button {
     width: 24%;
     height: 15%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: 0.3s;
+    border: 0px;
+    cursor: pointer;
+    background-color: rgb(100, 96, 140);
+
+}
+
+.numbers-and-operators button:hover {
+    color: rgb(14, 237, 249);
+    box-shadow: 0 0 10px 4px rgb(14, 237, 249);
+    font-size: 1.8rem;
+
 
 }
 
 .history {
-    background-color: purple;
+    background-color: rgb(57, 50, 124);
     grid-area: history;
+    position: relative;
 }
 
-.history p {
+.history p,
+.memory p {
     text-align: center;
+    color: white;
+
+
+}
+
+.history span,
+.memory span {
+    color: white;
+    padding: 5px;
 }
 
 .memory {
-    background-color: darkred;
+    position: relative;
+    background-color: rgb(57, 50, 124);
     grid-area: memory;
+}
+
+.history div {
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    background-color: rgb(41, 38, 70);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    box-shadow: 0 0 10px 4px rgb(14, 237, 249);
+}
+
+.memory div {
+    position: absolute;
+    width: 90%;
+    height: 85%;
+    background-color: rgb(41, 38, 70);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -46%);
+    box-shadow: 0 0 10px 4px rgb(14, 237, 249);
 }
