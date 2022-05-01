@@ -6,10 +6,19 @@
 
 .calculator {
     display: grid;
+    grid-template-columns: 0.6fr 0.4fr;
+    grid-template-rows: 33% 15%;
+    grid-template-areas:
+        "screen-calc history"
+        "memory-buttons history"
+        "numbers-and-operators memory";
+
     position: absolute;
     width: 850px;
+    min-width: 850px;
     height: 550px;
-    background-color: pink;
+    min-height: 550px;
+    /* background-color: pink; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -17,25 +26,47 @@
 
 .screen {
     background-color: blue;
+    grid-area: screen-calc;
 }
 
 .memory-buttons {
-    background-color: green;
+    /* background-color: green; */
+    grid-area: memory-buttons;
+    display: flex;
+    align-items: center;
+}
+
+.memory-buttons button {
+    width: 20%;
+    height: 60%;
 }
 
 .numbers-and-operators {
-    background-color: orange;
+    /* background-color: orange; */
+    grid-area: numbers-and-operators;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.numbers-and-operators button {
+    width: 25%;
+    height: 16.6%;
+
 }
 
 .history {
     background-color: purple;
+    grid-area: history;
 }
 
 .memory {
-    background-color: aqua;
-}
+    background-color: darkred;
+    grid-area: memory;
 
-/* body {
+    /* body {
     background-color: rgb(0, 0, 0);
 }
 
