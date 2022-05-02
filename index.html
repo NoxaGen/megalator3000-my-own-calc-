@@ -47,30 +47,33 @@
         </section>
         <!-- section for keep all basic and more advanced operators + numbers -->
         <section class="numbers-and-operators">
-            <button class="operator" title="procent">%</button>
-            <button class="operator" title="kasuje ostatnio wprowadzoną liczbę">CE</button>
-            <button class="operator" title="kasuje całe obliczenie">C</button>
-            <button class="operator" title="cofnij"><i class="fas fa-backspace"></i></button>
-            <button class="operator" title="obliczanie odwrotności liczby"><i class="fas fa-exchange-alt"></i></button>
-            <button class="operator" title="podnieś do potęgi"><i class="fas fa-cubes"></i></button>
-            <button class="operator" title="pierwiastek"><i class="fas fa-square-root-alt"></i></button>
-            <button class="operator" title="podziel"><i class="fas fa-divide"></i></button>
+            <button data-operator="percentage" class="operator" title="procent">%</button>
+            <button data-operator="clear-each" class="operator" title="kasuje ostatnio wprowadzoną liczbę">CE</button>
+            <button data-operator="clear" class="operator" title="kasuje całe obliczenie">C</button>
+            <button data-operator="backspace" class="operator" title="cofnij"><i class="fas fa-backspace"></i></button>
+            <button data-operator="reciprocal" class="operator" title="obliczanie odwrotności liczby"><i
+                    class="fas fa-exchange-alt"></i></button>
+            <button data-operator="power" class="operator" title="podnieś do potęgi"><i
+                    class="fas fa-cubes"></i></button>
+            <button data-operator="square" class="operator" title="pierwiastek"><i
+                    class="fas fa-square-root-alt"></i></button>
+            <button data-operator="divide" class="operator" title="podziel"><i class="fas fa-divide"></i></button>
             <button data-number="7">7</button>
             <button data-number="8">8</button>
             <button data-number="9">9</button>
-            <button class="operator" title="pomnóż">X</button>
+            <button data-operator="multiply" class="operator" title="pomnóż">X</button>
             <button data-number="4">4</button>
             <button data-number="5">5</button>
             <button data-number="6">6</button>
-            <button class="operator" title="odejmij">-</button>
+            <button data-operator="substract" class="operator" title="odejmij">-</button>
             <button data-number="1">1</button>
             <button data-number="2">2</button>
             <button data-number="3">3</button>
-            <button class="operator" title="dodaj">+</button>
-            <button class="operator" title="negacja">+/-</button>
+            <button data-operator="add" class="operator" title="dodaj">+</button>
+            <button data-operator="negation" class="operator" title="negacja">+/-</button>
             <button data-number="0">0</button>
-            <button class="operator" title="przecinek">,</button>
-            <button class="operator" title="oblicz">=</button>
+            <button data-operator="comma" class="operator" title="przecinek">,</button>
+            <button data-operator="equal" class="operator" title="oblicz">=</button>
         </section>
         <!-- section intended to store history of last calculations -->
         <section class="history">
