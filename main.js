@@ -30,25 +30,36 @@ const operatorsButtons = {
 testBoolean = false;
 //global events
 
+const userChoices = {
+    num1: 0,
+    num2: 0,
+    operator: ''
+}
 
-let num1;
-let num2;
-let operator = '';
+
+
+// let num1;
+// let num2;
+// let operator = '';
 
 numbers.forEach(number => {
     number.addEventListener('click', function () {
         let num1op = parseInt(this.dataset.number);
         console.log(num1op);
-        num1 = megalatorScreen.textContent = megalatorScreen.textContent + num1op;
+        megalatorScreen.textContent = megalatorScreen.textContent + num1op;
 
-        if (testBoolean === true) {
-
-
-            num = parseInt(this.dataset.number);
-            num2 = megalatorScreen.textContent = megalatorScreen.textContent + num;
-            console.log('im here')
-
+        if (userChoices.operator == 'add') {
+            console.log('aktywuje dodawanie');
         }
+
+        // if (testBoolean === true) {
+
+
+        //     num = parseInt(this.dataset.number);
+        //     num2 = megalatorScreen.textContent = megalatorScreen.textContent + num;
+        //     console.log('im here')
+
+        // }
 
 
 
@@ -69,20 +80,20 @@ operatorsButtons.clearAll.addEventListener('click', function () {
     megalatorScreen.textContent = '';
 })
 
-operatorsButtons.add.addEventListener('click', add);
+// operatorsButtons.add.addEventListener('click', add);
 
 //functions depends of operator
 
-function add(num1, num2) {
+// function add(num1, num2) {
 
-    result = num1 + num2;
-    console.log('add working')
-    console.log(result);
+//     result = num1 + num2;
+//     console.log('add working')
+//     console.log(result);
 
 
-    return result;
+//     return result;
 
-}
+// }
 
 function substract(num1, num2) {
     result = num1 - num2;
@@ -95,6 +106,8 @@ operatorsArr.forEach(operator => {
     operator.addEventListener('click', function () {
         megalatorScreen.textContent = '';
         testBoolean = true;
+        userChoices.operator = this.dataset.operator;
+        console.log(userChoices.operator)
 
     })
 })
