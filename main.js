@@ -33,13 +33,24 @@ testBoolean = false;
 
 let num1;
 let num2;
+let operator = '';
 
 numbers.forEach(number => {
     number.addEventListener('click', function () {
-        let num = parseInt(this.dataset.number);
-        console.log(num);
+        let num1op = parseInt(this.dataset.number);
+        console.log(num1op);
+        num1 = megalatorScreen.textContent = megalatorScreen.textContent + num1op;
 
-        num1 = megalatorScreen.textContent = megalatorScreen.textContent + num;
+        if (testBoolean === true) {
+
+
+            num = parseInt(this.dataset.number);
+            num2 = megalatorScreen.textContent = megalatorScreen.textContent + num;
+            console.log('im here')
+
+        }
+
+
 
     });
 
@@ -52,6 +63,43 @@ numbers.forEach(number => {
 //     console.log(num1)
 // })
 
-operatorsButtons.clear.addEventListener('click', function () {
+//operator button events
+
+operatorsButtons.clearAll.addEventListener('click', function () {
     megalatorScreen.textContent = '';
 })
+
+operatorsButtons.add.addEventListener('click', add);
+
+//functions depends of operator
+
+function add(num1, num2) {
+
+    result = num1 + num2;
+    console.log('add working')
+    console.log(result);
+
+
+    return result;
+
+}
+
+function substract(num1, num2) {
+    result = num1 - num2;
+    return result;
+}
+
+
+
+operatorsArr.forEach(operator => {
+    operator.addEventListener('click', function () {
+        megalatorScreen.textContent = '';
+        testBoolean = true;
+
+    })
+})
+
+
+
+
+//operator event and function callback
