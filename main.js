@@ -5,10 +5,11 @@ const numbers = [...document.querySelectorAll('[data-number]')];
 
 //download all buttons into array then put them in one object
 const operatorsArr = [...document.querySelectorAll('[data-operator]')];
+
 const operatorsButtons = {
     percent: operatorsArr[0],
     clearAnEntry: operatorsArr[1],
-    clear: operatorsArr[2],
+    clearAll: operatorsArr[2],
     backspace: operatorsArr[3],
     reverse: operatorsArr[4],
     power: operatorsArr[5],
@@ -20,7 +21,6 @@ const operatorsButtons = {
     equals: operatorsArr[11],
     commoa: operatorsArr[12],
     negation: operatorsArr[13]
-
 };
 
 //test 
