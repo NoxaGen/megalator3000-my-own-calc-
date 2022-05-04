@@ -1,10 +1,12 @@
 //vars
 let megalatorScreen = document.querySelector('[data-calculator="screen"]');
 const numbers = [...document.querySelectorAll('[data-number]')];
-
+const equalButton = document.querySelector('[data-special-operator="equal"]');
 
 //download all buttons into array then put them in one object
 const operatorsArr = [...document.querySelectorAll('[data-operator]')];
+
+
 
 const operatorsButtons = {
     percent: operatorsArr[0],
@@ -18,9 +20,9 @@ const operatorsButtons = {
     multiply: operatorsArr[8],
     substract: operatorsArr[9],
     add: operatorsArr[10],
-    equals: operatorsArr[11],
+    negation: operatorsArr[11],
     commoa: operatorsArr[12],
-    negation: operatorsArr[13]
+    // equals: operatorsArr[13]
 };
 
 //test 
@@ -45,17 +47,23 @@ const userChoices = {
 
 numbers.forEach(number => {
     number.addEventListener('click', function () {
-        let num1op = this.dataset.number;
         let num2op;
 
+        if (!userChoices.operator) {
 
-        megalatorScreen.textContent = megalatorScreen.textContent + num1op;
+            let num1op = this.dataset.number;
 
-        userChoices.num1 = parseInt(megalatorScreen.textContent);
+
+            // GDYBY ZAMKNAC NUM1 I NUM2 W TABLICY I ITEROWAC JA Z EQUALEM NA NUM2?
+            megalatorScreen.textContent = megalatorScreen.textContent + num1op;
+
+            userChoices.num1 = parseInt(megalatorScreen.textContent);
+        }
 
         if (userChoices.num1 && userChoices.operator) {
             console.log('mam num1 mam operatora wchodze do num2')
             num2op = this.dataset.number;
+
             megalatorScreen.textContent = megalatorScreen.textContent + num2op;
             userChoices.num2 = parseInt(megalatorScreen.textContent);
 
@@ -95,6 +103,20 @@ operatorsButtons.clearAll.addEventListener('click', function () {
     megalatorScreen.textContent = '';
 })
 
+equalButton.addEventListener('click', function () {
+    console.log('equal button new event working')
+
+
+
+    if (userChoices.num1 && userChoices.num2 && userChoices.operator) {
+
+
+        publishResult(userChoices.num1, userChoices.num2, userChoices.operator);
+        megalatorScreen.textContent = userChoices.result;
+    }
+
+})
+
 // operatorsButtons.add.addEventListener('click', add);
 
 //functions depends of operator
@@ -115,7 +137,7 @@ function substract(num1, num2) {
     return result;
 }
 
-
+//event on not specials operators
 
 operatorsArr.forEach(operator => {
     operator.addEventListener('click', function () {
@@ -140,7 +162,8 @@ function publishResult(num1, num2, operator) {
     if (operator === 'add') {
         result = num1 + num2;
         return userChoices.result = result;
+    } else {
+        console.log('zostal uzyty operator ktorego nie bylo z bazie danych')
     }
-
 
 }
