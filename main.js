@@ -31,9 +31,10 @@ testBoolean = false;
 //global events
 
 const userChoices = {
-    num1: 0,
-    num2: 0,
-    operator: ''
+    num1: null,
+    num2: null,
+    operator: null,
+    result: null,
 }
 
 
@@ -44,13 +45,27 @@ const userChoices = {
 
 numbers.forEach(number => {
     number.addEventListener('click', function () {
-        let num1op = parseInt(this.dataset.number);
-        console.log(num1op);
+        let num1op = this.dataset.number;
+        let num2op;
+
+
         megalatorScreen.textContent = megalatorScreen.textContent + num1op;
 
-        if (userChoices.operator == 'add') {
-            console.log('aktywuje dodawanie');
+        userChoices.num1 = parseInt(megalatorScreen.textContent);
+
+        if (userChoices.num1 && userChoices.operator) {
+            console.log('mam num1 mam operatora wchodze do num2')
+            num2op = this.dataset.number;
+            megalatorScreen.textContent = megalatorScreen.textContent + num2op;
+            userChoices.num2 = parseInt(megalatorScreen.textContent);
+
+
         }
+
+        // if (userChoices.operator === 'add') {
+        //     console.log('aktywuje dodawanie');
+        //     let num2op = this.dataset.number;
+        // }
 
         // if (testBoolean === true) {
 
@@ -116,3 +131,16 @@ operatorsArr.forEach(operator => {
 
 
 //operator event and function callback
+
+
+//function wich need 3 arguments, num1 , num2 and operator
+
+function publishResult(num1, num2, operator) {
+
+    if (operator === 'add') {
+        result = num1 + num2;
+        return userChoices.result = result;
+    }
+
+
+}
