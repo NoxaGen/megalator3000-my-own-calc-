@@ -2,12 +2,13 @@
 let megalatorScreen = document.querySelector('[data-calculator="screen"]');
 const numbers = [...document.querySelectorAll('[data-number]')];
 const equalButton = document.querySelector('[data-special-operator="equal"]');
+const clearAllButton = document.querySelector('[data-special-operator="clear-all"]');
 
 //download all buttons into array then put them in one object
 const operatorsArr = [...document.querySelectorAll('[data-operator]')];
 
 
-
+//i think this operator buttons may be usless if i chose dynamic download method by html datasetids..
 const operatorsButtons = {
     percent: operatorsArr[0],
     clearAnEntry: operatorsArr[1],
@@ -99,8 +100,14 @@ numbers.forEach(number => {
 
 //operator button events
 
-operatorsButtons.clearAll.addEventListener('click', function () {
+//CA button wich cleaning screen, result and both numbers
+clearAllButton.addEventListener('click', function () {
     megalatorScreen.textContent = '';
+    //can i use loop with iteration on object?
+    userChoices.num1 = null;
+    userChoices.num2 = null;
+    userChoices.operator = null;
+    userChoices.result = null;
 })
 
 equalButton.addEventListener('click', function () {
@@ -161,6 +168,12 @@ function publishResult(num1, num2, operator) {
 
     if (operator === 'add') {
         result = num1 + num2;
+        return userChoices.result = result;
+    } else if (operator === 'substract') {
+        result = num1 - num2;
+        return userChoices.result = result;
+    } else if (operator === 'multiply') {
+        result = num1 * num2;
         return userChoices.result = result;
     } else {
         console.log('zostal uzyty operator ktorego nie bylo z bazie danych')
