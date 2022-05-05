@@ -1,43 +1,15 @@
-//vars
-let megalatorScreen = document.querySelector('[data-calculator="screen"]');
+//variables 
+const megalatorScreen = document.querySelector('[data-calculator="screen"]');
+const equalButton = document.querySelector('[data-special-operator="equal"]'); // additional tasks
+const clearAllButton = document.querySelector('[data-special-operator="clear-all"]'); //CA button
+const miniScreen = document.querySelector('p.small-screen'); //last calculation, later mb push this into history?
+let historyPush; // this var will store all info about last calculation and pass it into history board
+
+//arrays
 const numbers = [...document.querySelectorAll('[data-number]')];
-const equalButton = document.querySelector('[data-special-operator="equal"]');
-const clearAllButton = document.querySelector('[data-special-operator="clear-all"]');
-const miniScreen = document.querySelector('p.small-screen');
-
-miniScreen.addEventListener('click', function () {
-    console.log("working")
-});
-
-//download all buttons into array then put them in one object
 const operatorsArr = [...document.querySelectorAll('[data-operator]')];
 
-
-//i think this operator buttons may be usless if i chose dynamic download method by html datasetids..
-const operatorsButtons = {
-    percent: operatorsArr[0],
-    clearAnEntry: operatorsArr[1],
-    clearAll: operatorsArr[2],
-    backspace: operatorsArr[3],
-    reverse: operatorsArr[4],
-    power: operatorsArr[5],
-    square: operatorsArr[6],
-    divide: operatorsArr[7],
-    multiply: operatorsArr[8],
-    substract: operatorsArr[9],
-    add: operatorsArr[10],
-    negation: operatorsArr[11],
-    commoa: operatorsArr[12],
-    // equals: operatorsArr[13]
-};
-
-//test 
-// const add = document.querySelector('[data-operator="add"]');
-// const clear = document.querySelector()
-// const history = [num1, num2, result];
-testBoolean = false;
-//global events
-
+//objects
 const userChoices = {
     num1: null,
     num2: null,
@@ -45,130 +17,9 @@ const userChoices = {
     result: null,
 }
 
+//functions
 
-
-// let num1;
-// let num2;
-// let operator = '';
-
-numbers.forEach(number => {
-    number.addEventListener('click', function () {
-        let num2op;
-
-        if (!userChoices.operator) {
-
-            let num1op = this.dataset.number;
-
-
-            // GDYBY ZAMKNAC NUM1 I NUM2 W TABLICY I ITEROWAC JA Z EQUALEM NA NUM2?
-            megalatorScreen.textContent = megalatorScreen.textContent + num1op;
-
-            userChoices.num1 = parseInt(megalatorScreen.textContent);
-        }
-
-        if (userChoices.num1 && userChoices.operator) {
-            console.log('mam num1 mam operatora wchodze do num2')
-            num2op = this.dataset.number;
-
-            megalatorScreen.textContent = megalatorScreen.textContent + num2op;
-            userChoices.num2 = parseInt(megalatorScreen.textContent);
-
-
-        }
-
-        // if (userChoices.operator === 'add') {
-        //     console.log('aktywuje dodawanie');
-        //     let num2op = this.dataset.number;
-        // }
-
-        // if (testBoolean === true) {
-
-
-        //     num = parseInt(this.dataset.number);
-        //     num2 = megalatorScreen.textContent = megalatorScreen.textContent + num;
-        //     console.log('im here')
-
-        // }
-
-
-
-    });
-
-});
-
-// add.addEventListener('click', function () {
-//     console.log("add is working properly");
-//     megalatorScreen.textContent = '';
-//     //musi num 1 wskoczyc w dodatowy span w screenie na dol 
-//     console.log(num1)
-// })
-
-//operator button events
-
-//CA button wich cleaning screen, result and both numbers
-clearAllButton.addEventListener('click', function () {
-    megalatorScreen.textContent = '';
-    //can i use loop with iteration on object?
-    userChoices.num1 = null;
-    userChoices.num2 = null;
-    userChoices.operator = null;
-    userChoices.result = null;
-})
-
-equalButton.addEventListener('click', function () {
-    console.log('equal button new event working')
-
-    miniScreen.textContent = `${userChoices.num1} ${userChoices.operator} ${userChoices.num2}`;
-
-    if (userChoices.num1 && userChoices.num2 && userChoices.operator) {
-
-
-        publishResult(userChoices.num1, userChoices.num2, userChoices.operator);
-        megalatorScreen.textContent = userChoices.result;
-    }
-
-})
-
-// operatorsButtons.add.addEventListener('click', add);
-
-//functions depends of operator
-
-// function add(num1, num2) {
-
-//     result = num1 + num2;
-//     console.log('add working')
-//     console.log(result);
-
-
-//     return result;
-
-// }
-
-function substract(num1, num2) {
-    result = num1 - num2;
-    return result;
-}
-
-//event on not specials operators
-
-operatorsArr.forEach(operator => {
-    operator.addEventListener('click', function () {
-        megalatorScreen.textContent = '';
-        testBoolean = true;
-        userChoices.operator = this.dataset.operator;
-        console.log(userChoices.operator)
-
-    })
-})
-
-
-
-
-//operator event and function callback
-
-
-//function wich need 3 arguments, num1 , num2 and operator
-
+//function need 3 parameters from object userChoices and publish result on screen
 function publishResult(num1, num2, operator) {
 
     if (operator === '+') {
@@ -186,3 +37,59 @@ function publishResult(num1, num2, operator) {
     }
 
 }
+
+//event listeners
+
+//listen every number value and parse it into integer then pass into object userChoices
+numbers.forEach(number => {
+    number.addEventListener('click', function () {
+
+        //num1
+        if (!userChoices.operator) {
+            let num1op = this.dataset.number;
+            megalatorScreen.textContent = megalatorScreen.textContent + num1op;
+            userChoices.num1 = parseInt(megalatorScreen.textContent);
+        }
+        //num2 active when user choose operator and after 'equal' click
+        if (userChoices.num1 && userChoices.operator) {
+            let num2op = this.dataset.number;
+            megalatorScreen.textContent = megalatorScreen.textContent + num2op;
+            userChoices.num2 = parseInt(megalatorScreen.textContent);
+        }
+    });
+
+});
+
+//after click 'CA' clear whole screen without history
+clearAllButton.addEventListener('click', function () {
+    megalatorScreen.textContent = '';
+    //can i use loop with iteration on object?
+    userChoices.num1 = null;
+    userChoices.num2 = null;
+    userChoices.operator = null;
+    userChoices.result = null;
+})
+
+//after click '=' check 3 values in object userChoice are true, if yes call function and publish result
+equalButton.addEventListener('click', function () {
+
+    if (userChoices.num1 && userChoices.num2 && userChoices.operator) {
+
+
+        publishResult(userChoices.num1, userChoices.num2, userChoices.operator);
+        megalatorScreen.textContent = userChoices.result;
+        //assign whole calculation in variable because ill push it after into history screen
+        historyPush = `${userChoices.num1} ${userChoices.operator} ${userChoices.num2} = ${userChoices.result}`;
+        miniScreen.textContent = historyPush;
+    }
+})
+
+//every basic operator like '+ - / *' clear screen and pass decision in object userChouices
+operatorsArr.forEach(operator => {
+    operator.addEventListener('click', function () {
+        megalatorScreen.textContent = '';
+        userChoices.operator = this.dataset.operator;
+    })
+})
+
+// spróbować jutro zrobic iteracje obiektu jesli sie da, oraz historyPush zmienic w string i przekazac do history w postaic UL moze i append Child?
