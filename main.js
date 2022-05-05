@@ -175,8 +175,9 @@ function publishResult(num1, num2, operator) {
     } else if (operator === 'multiply') {
         result = num1 * num2;
         return userChoices.result = result;
-    } else {
-        console.log('zostal uzyty operator ktorego nie bylo z bazie danych')
+    } else if (operator === 'divide') {
+        result = num1 / num2;
+        return userChoices.result = result;
     }
 
 }
