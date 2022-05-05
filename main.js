@@ -3,6 +3,11 @@ let megalatorScreen = document.querySelector('[data-calculator="screen"]');
 const numbers = [...document.querySelectorAll('[data-number]')];
 const equalButton = document.querySelector('[data-special-operator="equal"]');
 const clearAllButton = document.querySelector('[data-special-operator="clear-all"]');
+const miniScreen = document.querySelector('p.small-screen');
+
+miniScreen.addEventListener('click', function () {
+    console.log("working")
+});
 
 //download all buttons into array then put them in one object
 const operatorsArr = [...document.querySelectorAll('[data-operator]')];
@@ -113,7 +118,7 @@ clearAllButton.addEventListener('click', function () {
 equalButton.addEventListener('click', function () {
     console.log('equal button new event working')
 
-
+    miniScreen.textContent = `${userChoices.num1} ${userChoices.operator} ${userChoices.num2}`;
 
     if (userChoices.num1 && userChoices.num2 && userChoices.operator) {
 
@@ -166,16 +171,16 @@ operatorsArr.forEach(operator => {
 
 function publishResult(num1, num2, operator) {
 
-    if (operator === 'add') {
+    if (operator === '+') {
         result = num1 + num2;
         return userChoices.result = result;
-    } else if (operator === 'substract') {
+    } else if (operator === '-') {
         result = num1 - num2;
         return userChoices.result = result;
-    } else if (operator === 'multiply') {
+    } else if (operator === '*') {
         result = num1 * num2;
         return userChoices.result = result;
-    } else if (operator === 'divide') {
+    } else if (operator === '/') {
         result = num1 / num2;
         return userChoices.result = result;
     }
