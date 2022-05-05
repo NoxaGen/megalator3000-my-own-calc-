@@ -79,6 +79,16 @@ body {
     text-shadow: 3px 3px 6px rgba(48, 224, 233, 0.401);
 }
 
+.screen .small-screen {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    z-index: 2;
+    color: rgba(48, 224, 233, 0.654);
+    text-shadow: 3px 3px 6px rgba(48, 224, 233, 0.401);
+}
+
+
 button {
     border-radius: 8%;
 }
