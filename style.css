@@ -180,6 +180,14 @@ button {
     box-shadow: 0 0 10px 4px rgb(14, 237, 249);
 }
 
+.history-container {
+    padding: 1px 5px 1px 5px;
+    color: rgba(48, 224, 233, 0.654);
+    text-shadow: 3px 3px 6px rgba(48, 224, 233, 0.401);
+    text-align: center;
+    font-size: 1.3rem;
+}
+
 .memory div {
     position: absolute;
     width: 90%;
