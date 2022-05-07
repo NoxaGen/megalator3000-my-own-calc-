@@ -3,6 +3,7 @@ const megalatorScreen = document.querySelector('[data-calculator="screen"]');
 const equalButton = document.querySelector('[data-special-operator="equal"]'); // additional tasks
 const clearAllButton = document.querySelector('[data-special-operator="clear-all"]'); //CA button
 const miniScreen = document.querySelector('p.small-screen'); //last calculation, later mb push this into history?
+const backspace = document.querySelector('[data-special-operator="backspace"]');
 let historyPush; // this var will store all info about last calculation and pass it into history board
 
 //arrays
@@ -36,8 +37,17 @@ function publishResult(num1, num2, operator) {
         return userChoices.result = result;
     }
 
-}
+};
 
+//function wich push value of historyPush into history-list by create child element 
+function historyPull() {
+    const historyBoard = document.querySelector('[data-calculator="history-list"]');
+    const lastCalculaton = document.createElement('ul');
+    lastCalculaton.classList.add('history-container');
+    lastCalculaton.textContent = historyPush;
+    historyBoard.appendChild(lastCalculaton);
+
+};
 //event listeners
 
 //listen every number value and parse it into integer then pass into object userChoices
@@ -69,7 +79,7 @@ clearAllButton.addEventListener('click', function () {
     userChoices.operator = null;
     userChoices.result = null;
 
-})
+});
 
 //after click '=' check 3 values in object userChoice are true, if yes call function and publish result
 equalButton.addEventListener('click', function () {
@@ -84,7 +94,7 @@ equalButton.addEventListener('click', function () {
         miniScreen.textContent = historyPush;
         historyPull();
     }
-})
+});
 
 //every basic operator like '+ - / *' clear screen and pass decision in object userChouices
 operatorsArr.forEach(operator => {
@@ -92,17 +102,14 @@ operatorsArr.forEach(operator => {
         megalatorScreen.textContent = '';
         userChoices.operator = this.dataset.operator;
     })
-})
+});
+
+//backspace event
+backspace.addEventListener('click', function () {
+    let screenView = megalatorScreen.textContent;
+    let result = screenView.slice(0, -1);
+    console.log('backspace working')
+    return result;
+});
 
 // spróbować jutro zrobic iteracje obiektu jesli sie da, oraz historyPush zmienic w string i przekazac do history w postaic UL moze i append Child?
-
-
-//function wich push value of historyPush into history-list by create child element 
-function historyPull() {
-    const historyBoard = document.querySelector('[data-calculator="history-list"]');
-    const lastCalculaton = document.createElement('ul');
-    lastCalculaton.classList.add('history-container');
-    lastCalculaton.textContent = historyPush;
-    historyBoard.appendChild(lastCalculaton);
-
-};
