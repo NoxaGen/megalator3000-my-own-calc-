@@ -68,6 +68,7 @@ clearAllButton.addEventListener('click', function () {
     userChoices.num2 = null;
     userChoices.operator = null;
     userChoices.result = null;
+
 })
 
 //after click '=' check 3 values in object userChoice are true, if yes call function and publish result
@@ -81,6 +82,7 @@ equalButton.addEventListener('click', function () {
         //assign whole calculation in variable because ill push it after into history screen
         historyPush = `${userChoices.num1} ${userChoices.operator} ${userChoices.num2} = ${userChoices.result}`;
         miniScreen.textContent = historyPush;
+        historyPull();
     }
 })
 
@@ -93,3 +95,14 @@ operatorsArr.forEach(operator => {
 })
 
 // spróbować jutro zrobic iteracje obiektu jesli sie da, oraz historyPush zmienic w string i przekazac do history w postaic UL moze i append Child?
+
+
+//function wich push value of historyPush into history-list by create child element 
+function historyPull() {
+    const historyBoard = document.querySelector('[data-calculator="history-list"]');
+    const lastCalculaton = document.createElement('ul');
+    lastCalculaton.classList.add('history-container');
+    lastCalculaton.textContent = historyPush;
+    historyBoard.appendChild(lastCalculaton);
+
+};
