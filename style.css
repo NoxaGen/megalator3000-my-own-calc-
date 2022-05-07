@@ -178,6 +178,7 @@ button {
     left: 50%;
     transform: translate(-50%, -46%);
     box-shadow: 0 0 10px 4px rgb(14, 237, 249);
+    overflow: scroll;
 }
 
 .history-container {
@@ -186,6 +187,24 @@ button {
     text-shadow: 3px 3px 6px rgba(48, 224, 233, 0.401);
     text-align: center;
     font-size: 1.3rem;
+
+}
+
+.history-container::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.history-container::-webkit-scrollbar-track {
+    box-shadow: inset 0px 0 0px rgba(255, 48, 234, 0.787);
+}
+
+.history-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 48, 234, 0.787);
+    outline: 0px solid rgba(255, 48, 234, 0.787);
+}
+
+.history-container::-webkit-scrollbar-corner {
+    background: rgba(255, 48, 234, 0.787);
 }
 
 .memory div {
