@@ -19,6 +19,10 @@ const userChoices = {
 }
 
 //functions
+//square function
+function power(num) {
+    return Math.pow(num);
+}
 
 //function need 3 parameters from object userChoices and publish result on screen
 function publishResult(num1, num2, operator) {
@@ -35,9 +39,17 @@ function publishResult(num1, num2, operator) {
     } else if (operator === '/') {
         result = num1 / num2;
         return userChoices.result = result;
+    } else if (operator === 'power') {
+        console.log('power')
+        result = power(num1)
+        return userChoices.result = result;
     }
+}
 
-};
+
+
+
+
 
 //function wich push value of historyPush into history-list by create child element 
 function historyPull() {
@@ -78,6 +90,7 @@ clearAllButton.addEventListener('click', function () {
     userChoices.num2 = null;
     userChoices.operator = null;
     userChoices.result = null;
+    miniScreen.textContent = '';
 
 });
 
