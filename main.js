@@ -39,9 +39,12 @@ function publishResult(num1, num2, operator) {
     } else if (operator === '/') {
         result = num1 / num2;
         return userChoices.result = result;
-    } else if (operator === 'power') {
+    } else if (operator === 'power') { //dont work eh
         console.log('power')
         result = power(num1)
+        return userChoices.result = result;
+    } else if (operator === 'percentage') {
+        result = num1 / 100 * num2;
         return userChoices.result = result;
     }
 }
@@ -124,5 +127,7 @@ backspace.addEventListener('click', function () {
     console.log('backspace working')
     return result;
 });
+
+
 
 // spróbować jutro zrobic iteracje obiektu jesli sie da, oraz historyPush zmienic w string i przekazac do history w postaic UL moze i append Child?
